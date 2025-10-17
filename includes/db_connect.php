@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'mini_chat';
+$dbname = 'mini-chat';
 $user = 'root';
 $pass = '';
 
