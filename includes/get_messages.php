@@ -9,5 +9,5 @@ $stmt = $pdo->prepare(
 
      $stmt->execute();
      $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+     return $messages;
 ?>
