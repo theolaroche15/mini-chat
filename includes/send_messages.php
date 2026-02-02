@@ -2,8 +2,10 @@
 include_once('db_connect.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['username']) &&
-        isset($_POST['message'])) {
+    if (
+        isset($_POST['username']) &&
+        isset($_POST['message'])
+    ) {
 
         $username = trim($_POST['username']);
         $message = trim($_POST['message']);
@@ -25,7 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $now = date('Y-m-d H:i:s');
             $stmt = $pdo->prepare(
                 "INSERT INTO messages(user_id, content, created_at, ip_address)
-                 VALUES (?, ?, ?, ?)");
+                 VALUES (?, ?, ?, ?)"
+            );
             $stmt->execute([$user_id, $message, $now, $ip]);
 
             header('Location: ../index.php');
@@ -37,4 +40,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Formulaire incomplet.";
     }
 }
-?>
